@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab3 PS36816</title>
+    <link rel="stylesheet" href="Lab4_1.css" />
+    <style>
+      .input-score.validate {
+        border-color: red;
+      }
+      .msg {
+        margin-top: 12px;
+        font-size: 12px;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Danh mục sản phẩm
+    </div>
+    <div class="body">
+      <div class="left">
+        <div class="h-title">Nhập thông tin sinh viên</div>
+        <div class="h-group">
+          <label for="">Tên SV:</label>
+          <input type="text" class="input-name" />
+        </div>
+        <div class="h-group">
+          <label for="">Điểm:</label>
+          <input type="text" class="input-score" />
+          <div class="msg"></div>
+        </div>
+
+        <div class="btn-wrapper">
+          <div class="btn-create">Tạo</div>
+        </div>
+      </div>
+      <div class="right">
+        <table class="info" id="info"></table>
+      </div>
+    </div>
+
+    <script src="./Lab4_2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,222 @@
+.body{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-color);
+    padding-bottom: 30px;
+    border-bottom: 5px solid var(--primary);
+}
+.body-wrapper{
+    width: var(--width);
+    min-height: 300px;
+    display: flex;
+    padding: 20px 0;
+}
+/* lèt */
+.b-left{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: rgb(80, 79, 79);
+    padding: 10px 20px 0 0;
+}
+.b-left-top{
+    display: flex;
+    align-items: center;
+    padding: 10px 0 10px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(22,22,22,0.07);
+}
+.b-left-top img{
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgb(207, 205, 205);
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.b-left-top-info p{
+    color: black;
+    font-weight: 500;
+    line-height: 2rem;
+    margin-bottom: 4px;
+}
+.b-left-top-info span{
+    color: rgb(150, 147, 147);
+    cursor: pointer;
+}
+.b-left-top-info span i{
+    margin-right: 6px;
+}
+.b-left-item{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 1.8rem;
+    transition: all .3s ease;
+}
+.b-left-item-seemore{
+    align-items: flex-start;
+}
+.b-left-item:hover{
+    cursor: pointer;
+    color: var(--primary);
+}
+.b-left-item:hover .seemore-item{
+    cursor: pointer;
+    color: rgb(80, 79, 79);
+}
+.seemore-item{
+    margin: 14px 0;
+    font-size: 1.4rem;
+    transition: all .3s ease;
+}
+.seemore-item:hover{
+    color: var(--primary) !important;
+}
+.b-left-item i{
+    width: 30px;
+}
+/* right */
+.b-right{
+    width: 80%;
+    background-color: white;
+    box-shadow: 0 0 4px rgb(212, 209, 209);
+    border-radius: 4px;
+    padding: 10px 30px 50px;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+}
+.b-r-top{
+    border-bottom: 1px solid rgb(230, 224, 224);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.b-r-top p{
+    font-size: 2rem;
+    margin: 10px 0;
+}
+.b-r-top span{
+    color: gray;
+}
+.b-r-body{
+    display: flex;
+}
+.info-left{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.info-left-group{
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+}
+.info-left-title{
+    width: 25%;
+    color: gray;
+    text-align: end;
+    padding-right: 18px;
+    
+}
+.info-left-content{
+    width: 75%;
+    display: flex;
+    padding-right: 40px;
+}
+.content-input-text{
+    width: 100%;
+    border: 1px solid rgb(201, 197, 197);
+    border-radius: 4px;
+}
+.content-input-text input{
+    height: 36px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    padding: 0 10px;
+}
+.content-change{
+    color: rgb(48, 48, 238);
+    text-decoration: underline;
+    margin-left: 10px;
+}
+.content-change:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+.content-input-radio{
+    display: flex;
+    align-items: center;
+}
+.content-input-radio label{
+    margin-right: 10px;
+}
+.info-left-save{
+    width: 100%;
+    padding-left: 25%;
+}
+.save-btn{
+    margin-top: 10px;
+    padding: 10px 20px;
+    color: white;
+    background-color: var(--primary);
+    display: inline-block;
+    border-radius: 2px;
+    font-size: 1.6rem;
+    transition: all .3s ease;
+}
+.save-btn:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+
+
+
+
+/* right */
+.info-right{
+    width: 30%;
+    border-left: 1px solid rgb(230, 224, 224);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.info-right-img{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    object-fit: cover;
+}
+.info-right-img img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+.info-right-btn{
+    border: 1px solid rgb(197, 195, 195);
+    padding: 10px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    
+}
+.info-right-btn label{
+    cursor: pointer;
+}
+.info-right-btn:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+.info-right p{
+    font-size: 1.4rem;
+    padding: 0 50px;
+    line-height: 2rem;
+    color: gray;
+    text-align: center;
+}

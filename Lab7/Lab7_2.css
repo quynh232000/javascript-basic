@@ -1,0 +1,43 @@
+*{
+  box-sizing: inherit;
+}
+html,body{
+  box-sizing: border-box;
+  margin: 0;padding: 0;
+}
+:root{
+  --left-start:0px;
+  --top-start:0px;
+  --left:var(--left-start);
+  --top:var(--left-start);
+}
+.app{
+  width: 100%;
+ padding: 20px;
+ display: flex;justify-content: center;
+  
+}
+.wrapper{
+  width: 1400px;
+  background-color: aliceblue;
+  height: 550px;
+  border: 4px solid brown;
+  position: relative;
+}
+.img{
+  
+  position: absolute;
+  width: 60px;
+  transition: all 1s linear;
+  animation: moveImg 1s ease;
+}
+@keyframes moveImg {
+  from{
+    top: var(--top-start);
+    left: var(--left-start);
+  }
+  to{
+    top:var(--top);
+    left:var(--left);
+  }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab3 PS36816</title>
+    <style>
+      .body{
+        display: flex;
+        justify-content: center;
+        position: relative;
+      }
+      .wrapper{
+        margin-top: 40px;
+        display: flex;
+      }
+      .window{
+        font-size: 24px;
+        color: blue;
+        border: 1px solid blue;
+        border-radius: 4px ;
+        padding: 6px 16px;
+        margin: 0 10px;
+        transition: all .3s ease;
+        box-shadow: inset 0 0 10px blue;
+        font-weight: bold;
+      }
+      .window:hover{
+        cursor: pointer;
+        background-color: rgb(235, 231, 231);
+      }
+      .toast{
+        top: -90px;right: 0px;
+        position: absolute;
+        border: 1px solid green;
+        font-size: 28px;
+        padding: 16px 30px;
+        border-radius: 6px;
+        background-color: aquamarine;
+        color: orangered;
+        animation: slideInLeft ease .3s, fadeOut linear 2s 3s forwards;
+      }
+      .hidden{
+        display: none;
+      }
+      @keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(calc(100% + 32px));
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+    </style>
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title1"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Thao tác với cửa sổ trình duyệt
+    </div>
+    <div class="body">
+      <div class="toast hidden">Mở cửa sổ mới thành công</div>
+        <div class="wrapper">
+          <div class="window open">Mở cửa sổ mới</div>
+          <div class="window close">Đóng cửa sổ mới</div>
+          <div class="window check">Kiểm tra cửa sổ mới đã đóng chưa</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let openEl = document.querySelector(".open")
+      let closeEl = document.querySelector(".close")
+      let checkEl = document.querySelector(".check")
+      let toastEl = document.querySelector(".toast")
+      let newWindow;
+      openEl.onclick=()=>{
+        let width=0,height=0
+        if(window.navigator?.appVersion.includes("Edg")){
+          console.log("is IE")
+          width=window.screen.availWidth/2
+          height=window.screen.availHeight/2
+        }else{
+          width=window.screen.availWidth*2/3
+          height=window.screen.availHeight
+        }
+        newWindow =window.open("./Lab4_1.html","new TAb",`menubar = yes, width = ${width}, height = ${height}`,'_blank')
+        toastEl.classList.remove("hidden")
+        toastEl.textContent="CỬA SỔ MỚI ĐÃ ĐƯỢC MỞ"
+        setTimeout(()=>{
+          toastEl.classList.add("hidden")
+        },3000)
+      }
+      closeEl.onclick=()=>{
+        
+        if(!newWindow?.closed){
+          newWindow.close()
+          toastEl.classList.remove("hidden")
+          toastEl.textContent="CỬA SỔ MỚI ĐÃ ĐƯỢC ĐÓNG"
+          setTimeout(()=>{
+            toastEl.classList.add("hidden")
+          },3000)
+        }
+      }
+      checkEl.onclick=()=>{
+        let text=""
+        if(newWindow?.closed){
+          text=("ĐÃ ĐÓNG CỬA SỔ")
+        }else{
+          text=("CỬA SỔ CHƯA ĐƯỢC ĐÓNG")
+
+        }
+        toastEl.classList.remove("hidden")
+        toastEl.textContent=text
+        setTimeout(()=>{
+          toastEl.classList.add("hidden")
+        },3000)
+      }
+    
+    </script>
+  </body>
+</html>

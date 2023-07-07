@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./Lab6_4.css" />
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title1"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Box clicker speed test game
+    </div>
+    <div class="btn-body">
+      <div class="btn">Bắt đầu</div>
+      <div class="show-result">
+        <div class="result">0</div>
+        <span>giây</span>
+      </div>
+    </div>
+    <div class="body">
+      <div class="body">
+        <div class="wrapper">
+          <div class="wrapper1">
+            <div class="item"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const itemEl = document.querySelector(".item");
+      const playEl = document.querySelector(".btn");
+      const wrapperEl = document.querySelector(".wrapper");
+      const resultEl = document.querySelector(".result");
+
+      function repeat(func, times) {
+        func();
+        times && --times && repeat(func, times);
+      }
+      playEl.onclick = () => {
+        resultEl.textContent = "0";
+        timeCount = 0;
+        let a = setInterval(() => {
+          let randomX = Math.floor(Math.random() * 900);
+          let randomY = Math.floor(Math.random() * 400);
+          itemEl.style.marginLeft = randomX + "px";
+          itemEl.style.marginTop = randomY + "px";
+        }, 50);
+        const newPromise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            clearInterval(a);
+            let timeNow = Date.now();
+            document.addEventListener("click", (e) => {
+              let timeLater = Date.now();
+              let x = itemEl.offsetTop;
+              let y = itemEl.offsetLeft;
+              let mouseX = e.pageY;
+              let mouseY = e.pageX;
+              if (
+                mouseX >= x &&
+                mouseX <= x + 40 &&
+                mouseY >= y &&
+                mouseY <= y + 40
+              ) {
+                resolve(timeLater - timeNow);
+              }
+            });
+          }, 2000);
+        });
+        newPromise.then((resolve) => {
+          let timeCount = (resolve / 1000).toFixed(2);
+          resultEl.textContent = String(timeCount);
+          console.log("kq:", timeCount);
+        });
+      };
+    </script>
+  </body>
+</html>

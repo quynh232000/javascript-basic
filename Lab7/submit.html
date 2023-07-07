@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PS36816 Nguyen Van Quynh</title>
+    <style>
+      .title1 {
+        text-align: center;
+        font-size: 30px;
+        margin: 30px;
+        color: blue;
+      }
+      .body {
+        display: flex;
+        justify-content: center;
+      }
+      .wrapper {
+        width: 700px;
+        box-shadow: 0 0 10px gray;
+        padding: 20px;
+      }
+      .item {
+        margin: 10px;
+        font-size: 26px;
+        display: flex;
+      }
+      .label {
+        color: brown;
+        width: 80px;
+      }
+      .info {
+        font-weight: bold;
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+
+    <div class="title1">Thông tin đã đăng kí</div>
+    <div class="body">
+      <div class="wrapper">
+        <div class="item">
+          <div class="label">Họ:</div>
+          <div class="info">Nguyễn Văn</div>
+        </div>
+        <div class="item">
+          <div class="label">Tên:</div>
+          <div class="info">Quynh</div>
+        </div>
+        <div class="item">
+          <div class="label">Email:</div>
+          <div class="info">quynh@mgail.com</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const showEl = document.querySelectorAll(".info");
+      let q = window.location.search;
+      let params = new URLSearchParams(q);
+      showEl[0].textContent = params.get("firstName");
+      showEl[1].textContent = params.get("lastName");
+      showEl[2].textContent = params.get("email");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PS36816 Nguyen Van Quynh</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .body {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+      }
+      .list {
+        display: flex;
+        padding: 20px 60px;
+        background-color: oldlace;
+        font-size: 60px;
+      }
+      .item {
+        margin: 0 20px;
+      }
+      .item i {
+        color: rgb(255, 145, 0);
+        transition: all 0.3s ease;
+      }
+      .item i:hover {
+        cursor: pointer;
+      }
+      .text {
+        text-align: center;
+        margin-top: 60px;
+        font-size: 30px;
+        color: blue;
+      }
+      .text span {
+        color: red;
+        font-size: 36px;
+        margin: 0 6px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Start rating system
+    </div>
+    <div class="body">
+      <div class="wrapper">
+        <div class="list">
+          <div class="item">
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <div class="item">
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <div class="item">
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <div class="item">
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <div class="item">
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+        <div class="text">
+          You rated <span class="count-star">0</span> stars
+        </div>
+      </div>
+    </div>
+    <script>
+      const icon = [
+        "<i class='fa-regular fa-star'></i>",
+        '<i class="fa-solid fa-star"></i>',
+      ];
+      const itemEl = document.querySelectorAll(".item");
+      const show = document.querySelector(".count-star");
+      const removeChoice = () => {
+        itemEl.forEach((item) => {
+          item.innerHTML = icon[0];
+        });
+      };
+      itemEl.forEach((element, index) => {
+        element.addEventListener("click", (e) => {
+          removeChoice();
+          for (let i = 0; i <= index; i++) {
+            itemEl[i].innerHTML = icon[1];
+          }
+          show.textContent = index + 1 + "";
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+*{
+  box-sizing: inherit;
+}
+html,body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(32, 32, 32);
+}
+.body{
+  margin-top: 40px;
+  display: flex;justify-content: space-between;
+  color: white;
+  padding: 0 40px;
+  height: calc(100vh - 105px);
+}
+.wrapper{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.wrapper:hover .control{
+  display: flex;
+
+}
+.right{
+  width: 30%;
+  background-color: rgb(43, 41, 42);
+}
+.video{
+  width: 100%;
+  height: 500px;
+}
+.video:hover{
+  cursor: pointer;
+}
+.control{
+  display: none;
+  width: 100%;
+  font-size: 20px;
+  margin: 15px 0 0 5px;
+  transition: all .3s ease;
+  animation: fadeIn .8s ease;
+}
+.control div{
+  margin-right: 20px;
+}
+.time{
+  display: flex;
+  align-items: center;
+}
+.time div{
+  margin: 0;
+  width: 48px;
+  text-align: center;
+  font-size: 16px;
+}
+.hidden{
+  display: none;
+}
+.input-range{
+  border-color: red;
+}
+.icon i:hover{
+  cursor: pointer;
+}
+.right{
+  display: flex;
+  flex-direction: column;
+  padding:10px 20px;
+  overflow-y: scroll;
+}
+.right::-webkit-scrollbar {
+  width: 0px;
+}
+.r-item{
+  width: 100%;
+  position: relative;
+  
+}
+.r-video{
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background-color: rgb(245, 200, 235);
+}
+.icon-body{
+  display: none;
+  position: absolute;
+  top: 0;left: 0;right: 0;bottom: 0;
+  background-color: rgba(22,22,24,0.4);
+  transition: all 1s ease;
+  animation: fadeIn .8s ease;
+}
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }to{
+    opacity: 1;
+  }
+}
+.icon-play{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 30px;
+  line-height: 20px;
+}
+.r-item:hover .icon-body{
+  transition: all .3s ease;
+  display: block;
+  cursor: pointer;
+}

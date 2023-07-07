@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab3 PS36816</title>
+    <link rel="stylesheet" href="./Lab4_4.css" />
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title1"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Thời gian
+    </div>
+    <div class="body">
+      <div class="wrapper">
+        <div class="title">Current Local Time in Viet Nam</div>
+        <div class="time-body">
+          <div class="time hour">11</div>
+          <span>:</span>
+          <div class="time minute">20</div>
+          <span>:</span>
+          <div class="time second slide">56</div>
+        </div>
+        <div class="day-body">
+          <div class="item">
+            <div class="i-title">Day</div>
+            <div class="thu">1</div>
+          </div>
+          <div class="item">
+            <div class="i-title">Month</div>
+            <div class="month">7</div>
+          </div>
+          <div class="item">
+            <div class="i-title">Date</div>
+            <div class="day">3</div>
+          </div>
+
+          <div class="item">
+            <div class="i-title">Year</div>
+            <div class="year">2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      setInterval(() => {
+        const hourEl = document.querySelector(".hour");
+        const minuteEl = document.querySelector(".minute");
+        const secondEl = document.querySelector(".second");
+
+        const thuEl = document.querySelector(".thu");
+        const dayEl = document.querySelector(".day");
+        const monthEl = document.querySelector(".month");
+        const yearEl = document.querySelector(".year");
+
+        let now = new Date();
+
+        let hour = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+        let year = now.getFullYear();
+        let month = now.getMonth();
+        let day = now.getDate();
+        let thu = now.getDay();
+
+        secondEl.textContent = String(seconds);
+        minuteEl.textContent = String(minutes);
+        hourEl.textContent = String(hour);
+
+        thuEl.textContent = String(days[thu]);
+        dayEl.textContent = String(day);
+        monthEl.textContent = String(months[month]);
+        yearEl.textContent = String(year);
+      }, 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab3 PS36816</title>
+    <style>
+      .off {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        border: 1px solid rgba(22, 22, 24, 0.1);
+        box-shadow: inset 0 0 6px rgba(22, 22, 24, 0.6);
+        margin-bottom: 40px;
+        transition: all 0.3s ease;
+      }
+      .on {
+        background-color: yellow;
+        transition: all 0.3s ease;
+      }
+      button {
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="id">
+      <div class="off" id="light"></div>
+      <button id="off">Off</button>
+      <button id="on">On</button>
+    </div>
+    <script>
+      var off = document.getElementById("off");
+      var on = document.getElementById("on");
+      var light = document.getElementById("light");
+
+      off.onclick = function () {
+        light.classList.remove("on");
+      };
+      on.onclick = function () {
+        light.classList.add("on");
+      };
+    </script>
+  </body>
+</html>

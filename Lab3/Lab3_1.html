@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab3 PS36816</title>
+    <style>
+      .body {
+        display: flex;
+        justify-content: center;
+      }
+      .wrapper {
+        min-width: 400px;
+        padding: 30px;
+        box-shadow: 0 0 10px gray;
+        border-radius: 6px;
+        display: flex;
+        margin: 120px 0px;
+        justify-content: center;
+        align-items: center;
+      }
+      .number {
+        width: 80px;
+        text-align: center;
+        font-size: 26px;
+        outline-color: red;
+      }
+      .cal {
+        width: 120px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .solve {
+        border: 1px solid gray;
+        width: 40%;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 26px;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        color: red;
+        margin: 6px 0;
+      }
+      .solve:hover {
+        background-color: aqua;
+        cursor: pointer;
+      }
+      .solve.active {
+        background-color: aqua;
+      }
+      #result {
+        color: orange;
+        font-size: 30px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Phép tính cơ bản
+    </div>
+    <div class="body">
+      <div class="wrapper">
+        <input id="number1" class="number" type="text" />
+        <div class="cal" id="cal"></div>
+        <input id="number2" class="number" type="text" />
+        <div class="number">=</div>
+        <div id="result" class="number">?</div>
+      </div>
+    </div>
+    <script>
+      const phepTinh = document.getElementsByClassName("solve");
+      const num1El = document.getElementById("number1");
+      const num2El = document.getElementById("number2");
+      const calEl = document.getElementById("cal");
+      const resultEl = document.getElementById("result");
+
+      const arr = [
+        { id: 0, value: "+" },
+        { id: 1, value: "-" },
+        { id: 2, value: "*" },
+        { id: 3, value: "/" },
+      ];
+      const html = arr.map((item, index) => {
+        return `
+        <p class="solve" data-index=${index}>${item.value}</p>
+        `;
+      });
+      calEl.innerHTML = html.join("");
+
+      let value1,
+        value2,
+        value,
+        cal = "+";
+      let indexActive = 0;
+
+      const caculator = () => {
+        if (value1 && value2 && cal) {
+          switch (cal) {
+            case "+":
+              value = +value1 + +value2;
+              break;
+            case "-":
+              value = value1 - value2;
+              break;
+            case "*":
+              value = value1 * value2;
+              break;
+            case "/":
+              value = (value1 / value2).toFixed(2);
+              break;
+            default:
+              break;
+          }
+          resultEl.textContent = String(value);
+        }
+      };
+
+      num1El.oninput = (e) => {
+        value1 = e.target.value;
+        caculator();
+      };
+      num2El.oninput = (e) => {
+        value2 = e.target.value;
+        caculator();
+      };
+
+      phepTinh[indexActive].classList.add("active");
+
+      calEl.onclick = (e) => {
+        const node = e.target.closest(".solve");
+        if (node) {
+          phepTinh[indexActive].classList.remove("active");
+          indexActive = e.target?.dataset?.index;
+          node.classList.add("active");
+          cal = node.innerText;
+          caculator();
+        }
+      };
+    </script>
+  </body>
+</html>

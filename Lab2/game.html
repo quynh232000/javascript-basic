@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab2 Ps36818 Đoán số bí mật</title>
+    <style>
+      body,
+      html {
+        padding: 0;
+        margin: 0;
+      }
+      .body {
+        display: flex;
+        justify-content: center;
+        padding: 50px 0;
+      }
+      .wrapper {
+        width: 700px;
+        box-shadow: 0 0 10px rgba(8, 134, 218, 0.8);
+        padding: 20px;
+        border-radius: 6px;
+        min-height: 60vh;
+      }
+      .info {
+        display: flex;
+        align-items: center;
+      }
+      .title {
+        font-size: 24px;
+      }
+      .input {
+        margin-left: 20px;
+        width: 50px;
+        font-size: 30px;
+        padding: 6px;
+        /* border-color: red; */
+      }
+      .input.invalite {
+        border-color: red;
+      }
+      .result {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        font-size: 90px;
+        text-align: center;
+        margin: 20px 0;
+        background: url(../img/bg3.jpg) no-repeat;
+        background-size: 298px 175px;
+        background-position: center;
+        color: blue;
+        font-weight: bolder;
+      }
+      .btn-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 40px 0 20px;
+      }
+      .btn {
+        width: 90px;
+        height: 90px;
+        border: 1px solid green;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        box-shadow: inset 0 0 60px green;
+        color: white;
+        transition: all 0.3s ease;
+      }
+      .text {
+        text-align: center;
+        font-size: 36px;
+        margin: 40px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn:hover {
+        box-shadow: inset 0 0 60px rgb(8, 209, 8);
+        color: rgb(252, 139, 95);
+        cursor: pointer;
+      }
+      .btn.disabled {
+        box-shadow: inset 0 0 60px rgb(4, 41, 4);
+        background: gray;
+        color: rgb(201, 193, 193);
+        cursor: no-drop;
+      }
+      /* animation */
+      .shapes-4 {
+        width: 40px;
+        height: 40px;
+        color: #0bbeeb;
+        background: conic-gradient(
+            from -45deg at top 20px left 50%,
+            #0000,
+            currentColor 1deg 90deg,
+            #0000 91deg
+          ),
+          conic-gradient(
+            from 45deg at right 20px top 50%,
+            #0000,
+            currentColor 1deg 90deg,
+            #0000 91deg
+          ),
+          conic-gradient(
+            from 135deg at bottom 20px left 50%,
+            #0000,
+            currentColor 1deg 90deg,
+            #0000 91deg
+          ),
+          conic-gradient(
+            from -135deg at left 20px top 50%,
+            #0000,
+            currentColor 1deg 90deg,
+            #0000 91deg
+          );
+        animation: sh4 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
+      }
+      @keyframes sh4 {
+        50% {
+          width: 60px;
+          height: 60px;
+          transform: rotate(180deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .hidden {
+        display: none;
+      }
+      .error {
+        color: red;
+        font-size: 26px;
+      }
+      .text-result.success {
+        color: brown;
+        font-size: 46px;
+      }
+    </style>
+  </head>
+  <body>
+    <audio class="audio" src="../audio/congra.mp3"></audio>
+    <div class="app">
+      <a
+        href="/"
+        style="
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          font-size: 18px;
+          color: blue;
+        "
+        ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+      >
+      <div
+        class="title"
+        style="
+          font-size: 30px;
+          color: orange;
+          margin: 10px 20px;
+          text-decoration: underline;
+        "
+      >
+        Game con số may mắn
+      </div>
+      <div class="body">
+        <div class="wrapper">
+          <div class="info">
+            <div class="title">Mời bạn chọn 1 con số may mắn:</div>
+            <input type="text" class="input invalite" placeholder="......" />
+          </div>
+          <div class="show">
+            <div class="result">
+              <div class="shapes-4 hidden"></div>
+              <div class="result-value">?</div>
+            </div>
+            <div class="text text-result success"></div>
+            <div class="text error hidden">Vui lòng nhập số</div>
+            <div class="btn-wrapper"><div class="btn">CHƠI</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var inputEl = document.querySelector(".input");
+      var boxEl = document.querySelector(".shapes-4");
+      var resultEl = document.querySelector(".result-value");
+      var textEl = document.querySelector(".text-result");
+
+      var btnEl = document.querySelector(".btn");
+      var errEl = document.querySelector(".error");
+      var audioEl = document.querySelector(".audio");
+
+      btnEl.onclick = () => {
+        textEl.classList.remove("success");
+        var input = inputEl.value;
+        textEl.textContent = "";
+        if (!input || isNaN(input)) {
+          errEl.classList.remove("hidden");
+        } else {
+          errEl.classList.add("hidden");
+          var numberRandom = 10 + Math.round(Math.random() * 5);
+          boxEl.classList.remove("hidden");
+          resultEl.classList.add("hidden");
+          setTimeout(() => {
+            boxEl.classList.add("hidden");
+            resultEl.classList.remove("hidden");
+            resultEl.textContent = numberRandom + "";
+            if (input > numberRandom) {
+              textEl.textContent = "Số bạn chọn lớn hơn con số may mắn!!";
+              audioEl.src = "../audio/fail.mp3";
+              audioEl.play();
+            } else if (numberRandom == input) {
+              textEl.textContent = "Chúc mừng bạn đã đoán đúng!";
+              textEl.classList.add("success");
+              audioEl.src = "../audio/congra.mp3";
+              audioEl.play();
+            } else {
+              textEl.textContent = "Số bạn chọn nhỏ hơn con số may mắn!!";
+              audioEl.src = "../audio/fail.mp3";
+              audioEl.play();
+            }
+          }, 2000);
+        }
+      };
+    </script>
+  </body>
+</html>

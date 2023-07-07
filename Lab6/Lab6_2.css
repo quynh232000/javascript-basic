@@ -1,0 +1,72 @@
+*{
+  box-sizing: inherit;
+}
+body,html{
+  box-sizing: border-box;
+  margin: 0;padding: 0;
+
+}
+.body{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+  
+}
+.wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  width: 901.6px;
+  border: 1px solid gray;
+}
+.item{
+  width: 60px;
+  height: 60px;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+.red{
+  color: red;
+}
+.blue{
+  color: blue;
+}
+.item:hover{
+  background-color: rgb(241, 234, 234);
+  transition: all .3s ease ;
+  cursor: pointer;
+}
+.item.disabled{
+  cursor: default;
+}
+.item.disabled:hover{
+  background-color: white;
+}
+.result{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 90px;
+  transition: all .3s ease;
+  color: red;
+}
+.navigate{
+  display: flex;justify-content: center;
+  margin: 20px 0 ;
+}
+.btn-play{
+  padding: 10px 35px;
+  font-size: 20px;
+  color: white;
+  background-color: orangered;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all .3s ease;
+}
+.btn-play:hover{
+  background-color: rgb(212, 59, 3);
+  cursor: pointer;
+}

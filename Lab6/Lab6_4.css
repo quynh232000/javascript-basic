@@ -1,0 +1,78 @@
+*{
+  box-sizing: inherit;
+
+}
+html,body{
+  box-sizing: border-box;
+  margin: 0;padding: 0;
+}
+.body{
+  display: flex;
+  justify-content: center;
+}
+.btn-body{
+  display: flex;
+  justify-content: center;
+  margin: 40px 20px;
+  position: relative;
+}
+.btn{
+  border: 1px solid blue;
+  border-radius: 50%;
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  height: 90px;
+  transition: all .3s ease;
+}
+.btn:hover{
+  cursor: pointer;
+  background-color: rgb(22, 22, 192);
+}
+.wrapper{
+  width: 960px;
+  height: 460px;
+  background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),            
+              linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),            
+              linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+  /* padding: 4px; */
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper1{
+  width: 950px;
+  height: 450px;
+  /* position: relative; */
+background-color: white;
+}
+.item{
+  width: 40px;
+  height: 40px;
+  background-color: red;
+}
+.show-result{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+  font-size: 30px;
+  color: red;
+  border: 4px solid green;
+  padding: 10px 30px;
+}
+.result{
+  width: 60px;
+  font-weight: bold;
+}
+.show-result span{
+  color: black;
+}

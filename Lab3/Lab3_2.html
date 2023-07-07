@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab3 PS36816</title>
+    <style>
+      * {
+        box-sizing: inherit;
+      }
+      html,
+      body {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-image: url(../img/bg2.jpg);
+        background-size: 100% 100%;
+      }
+      .body {
+        margin-top: 30px;
+        width: 100%;
+        /* min-height: 100vh; */
+        /* background-image: url(../img/bg2.jpg); */
+        background-size: 100% 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 40px 10px;
+      }
+      .group-wrapper {
+        width: 20%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+      }
+      .group {
+        width: 60%;
+        background-color: white;
+        border-radius: 10px;
+        border: 2px solid blue;
+        box-shadow: 0 0 10px red;
+        color: black;
+        transition: all 0.3s ease;
+      }
+      .group:hover {
+        transform: scale(1.04);
+      }
+      .group-wrapper:nth-child(2n + 1) .group {
+        border: 2px solid rgb(9, 228, 64);
+        box-shadow: 0 0 10px rgb(19, 4, 223);
+        color: orangered;
+      }
+      .item {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title"
+      style="
+        font-size: 30px;
+        color: red;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Bảng cửu chương
+    </div>
+    <div class="body"></div>
+    <script>
+      const body = document.querySelector(".body");
+      let html = [];
+      for (var i = 1; i <= 10; i++) {
+        let html1 = [];
+        for (var j = 1; j <= 10; j++) {
+          html1.push(`<div class="item">${i} * ${j} = ${i * j}</div>`);
+        }
+        html.push(
+          `<div class="group-wrapper">
+            <div class="group">
+              ${html1.join("")}
+            </div>
+          </div>`
+        );
+      }
+      body.innerHTML = html.join("");
+    </script>
+  </body>
+</html>

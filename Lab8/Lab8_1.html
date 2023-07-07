@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ps36816 Nguyen Van Quynh</title>
+    <link rel="stylesheet" href="./Lab8_1.css" />
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title1"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Upload Files
+    </div>
+    <div class="body">
+      <div class="header">
+        <label class="button" for="my-file">Upload files</label>
+        <input type="file" id="my-file" name="my-file" multiple class="input" />
+      </div>
+      <div class="view">
+        <div class="view-wrapper">
+          <!-- .item  -->
+          <!-- <div class="item">
+            <div class="item-wrapper">
+              <img src="../img/a1.jpg" alt="" class="img" />
+              <div class="img-name">okokoko</div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <script>
+      let listData = [];
+      const btnEl = document.querySelector(".button");
+      const viewEl = document.querySelector(".view-wrapper");
+      const inputEl = document.getElementById("my-file");
+      inputEl.oninput = (e) => {
+        let listFiles = e.target.files;
+        let newListFiles = Object.keys(listFiles).map((key) => listFiles[key]);
+        newListFiles.map((files) => {
+          var fr = new FileReader();
+          fr.onload = function () {
+            let node = document.createElement("div");
+            node.classList.add("item");
+            node.innerHTML = `<div class="item-wrapper">
+                                 <img src=${fr.result} alt="" class="img" />
+                                 <div class="img-name">${files.name}</div>
+                               </div>`;
+            viewEl.appendChild(node);
+          };
+          fr.readAsDataURL(files);
+        });
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PS36816 Nguyen Van Quynh</title>
+    <style>
+      .body {
+        display: flex;
+        justify-content: center;
+      }
+      .wrapper {
+        width: 400px;
+        box-shadow: 0 0 10px rgba(238, 118, 7, 0.6);
+        padding: 20px 30px;
+        border-radius: 6px;
+      }
+      .title1 {
+        font-size: 26px;
+        text-align: center;
+        color: blue;
+        margin-bottom: 30px;
+        font-weight: bold;
+      }
+      .group {
+        border-color: rgb(50, 225, 238);
+        border-radius: 4px;
+        margin-bottom: 10px;
+        padding: 4px;
+      }
+      legend {
+        color: rgb(27, 124, 153);
+        font-weight: 600;
+        padding: 0 6px;
+        font-size: 14px;
+      }
+      input {
+        width: 90%;
+        height: 100%;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        padding: 0 10px;
+        margin-bottom: 6px;
+        color: blue;
+      }
+      .btn-body {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+      }
+      .btn {
+        background-color: orangered;
+        color: white;
+        font-size: 20px;
+        padding: 8px 24px;
+        border-radius: 6px;
+        border: none;
+        transition: all 0.3s ease;
+      }
+      .btn:hover {
+        cursor: pointer;
+        background-color: rgb(202, 57, 5);
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Form submission
+    </div>
+    <div class="body">
+      <div class="wrapper">
+        <div class="title1">Form Sign Up</div>
+        <form action="submit.html" method="get">
+          <fieldset class="group">
+            <legend>First Name</legend>
+            <input type="text" name="firstName" placeholder="First name..." />
+          </fieldset>
+          <fieldset class="group">
+            <legend>Last Name</legend>
+            <input type="text" name="lastName" placeholder="Last name" />
+          </fieldset>
+          <fieldset class="group">
+            <legend>Email</legend>
+            <input type="text" name="email" placeholder="Email..." />
+          </fieldset>
+          <div class="btn-body">
+            <button class="btn" type="submit">Sign up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

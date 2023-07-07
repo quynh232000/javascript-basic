@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab2 Ps36818 Tính cạnh huyền</title>
+    <style>
+      :root {
+        --height: 300px;
+        --width: 200px;
+      }
+      .hinh {
+        width: 0;
+        height: 0;
+        border-bottom: var(--width) solid red;
+        border-right: var(--height) solid transparent;
+        font-size: 24px;
+        position: relative;
+        transition: all 1s ease;
+      }
+      .a,
+      .b,
+      .c {
+        position: absolute;
+      }
+      .a {
+        left: -50px;
+        top: calc(var(--width) / 2);
+        transform: rotate(-90deg);
+      }
+      .b {
+        top: var(--width);
+        left: calc(var(--height) / 2);
+      }
+      .c {
+        top: calc((var(--width) / 2) - 44px);
+        left: calc((var(--height) / 2) - 18px);
+      }
+      .body {
+        display: flex;
+        padding: 20px 30px;
+      }
+      .left {
+        width: 40%;
+      }
+      .item {
+        display: flex;
+        font-size: 20px;
+        align-items: center;
+      }
+      .item input {
+        margin-left: 10px;
+        border: none;
+        outline: none;
+        width: 120px;
+        font-size: 20px;
+      }
+      .right {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+      }
+      @keyframes rotating {
+        from {
+          transform: rotate("180deg");
+          opacity: 0;
+        }
+        to {
+          transform: scale(1.2);
+          opacity: 1;
+        }
+      }
+      .rotate {
+        /* transform: rotateY("angle") 0.3s infinite; */
+        animation: rotating 2s linear infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Tính cạnh của tam giác
+    </div>
+    <div class="body">
+      <div class="left">
+        <div class="item">
+          <p>Nhập cạnh a:</p>
+          <input type="number" id="a" placeholder="....................." />cm
+        </div>
+        <div class="item">
+          <p>Nhập cạnh b:</p>
+          <input type="number" id="b" placeholder="....................." />cm
+        </div>
+        <div class="item" style="font-size: 24px">
+          <p>=>Cạnh huyền c =</p>
+          <div id="value" style="color: red; margin: 0 10px">?</div>
+          cm
+        </div>
+      </div>
+      <div class="right">
+        <div class="hinh">
+          <div class="a"></div>
+          <div class="b"></div>
+          <div class="c">?</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var aEl = document.getElementById("a");
+      var bEl = document.getElementById("b");
+      var cEl = document.getElementById("value");
+      var setA = document.querySelector(".a");
+      var setB = document.querySelector(".b");
+      var setC = document.querySelector(".c");
+      var rootEl = document.querySelector(":root");
+      let valueA = 0;
+      let valueB = 0;
+      aEl.oninput = () => {
+        valueA = aEl.value;
+        rootEl.style.setProperty("--width", `${valueA}px`);
+        setA.textContent = aEl.value;
+        if (valueA != 0 && valueB != 0) {
+          cEl.classList.remove("rotate");
+          setC.classList.remove("rotate");
+          var result = Math.sqrt(valueA * valueA + valueB * valueB).toFixed(1);
+          setC.textContent = result;
+          cEl.textContent = result;
+        } else {
+          cEl.classList.add("rotate");
+          setC.classList.add("rotate");
+        }
+      };
+      bEl.oninput = () => {
+        valueB = bEl.value;
+        rootEl.style.setProperty("--height", `${valueB}px`);
+        setB.textContent = bEl.value;
+        if (valueA != 0 && valueB != 0) {
+          cEl.classList.remove("rotate");
+          setC.classList.remove("rotate");
+          var result = Math.sqrt(valueA * valueA + valueB * valueB).toFixed(1);
+          setC.textContent = result;
+          cEl.textContent = result;
+        } else {
+          cEl.classList.add("rotate");
+          setC.classList.add("rotate");
+        }
+      };
+    </script>
+  </body>
+</html>

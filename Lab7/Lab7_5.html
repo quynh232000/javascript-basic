@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PS36816 Nguyen Van Quynh</title>
+    <link rel="stylesheet" href="./Lab7_5.css" />
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Kiểm lỗi cho form đặt hàng
+    </div>
+    <!-- toast -->
+    <div class="toast hidden"></div>
+    <div class="body">
+      <form action="" method="POST" class="form" id="buy-form">
+        <h3 class="heading">Đặt hàng</h3>
+        <p class="desc">Cùng mua sắm với Mr Quynh❤️</p>
+        <div class="spacer"></div>
+
+        <div class="form-group">
+          <label for="name" class="form-label">Sản phẩm</label>
+
+          <input
+            type="text"
+            name="name"
+            rules="required"
+            class="form-control"
+            id="name"
+            placeholder="Vd: Nước ngọt"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="price" class="form-label">Loại</label>
+
+          <select name="type" rules="required" class="form-control" id="type">
+            <option value="1">Điện thoại</option>
+            <option value="2">Quần áo</option>
+            <option value="3">Đồ ăn</option>
+            <option value="4">Nước ngọt</option>
+          </select>
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="price" class="form-label">Đơn giá</label>
+
+          <input
+            type="text"
+            name="price"
+            rules="required|number"
+            class="form-control"
+            id="price"
+            placeholder="Vd: 120.000"
+          />
+          <span class="form-message"></span>
+        </div>
+        <div class="form-group">
+          <label for="price" class="form-label">Nơi nhận hàng</label>
+          <div class="place-body">
+            <div class="place-item">
+              <label for="place1">Nội thành</label>
+              <input
+                type="radio"
+                name="place"
+                rules="required"
+                class="form-control"
+                id="place1"
+                checked
+              />
+            </div>
+            <div class="place-item">
+              <label for="place2">Ngoại thành</label>
+              <input
+                type="radio"
+                name="place"
+                rules="required"
+                class="form-control"
+                id="place2"
+              />
+            </div>
+          </div>
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group form-group-pay hidden">
+          <!-- <label for="pay-cost" class="form-label">Phí vận chuyển</label>
+
+          <input
+            type="pay-cost"
+            name="pay-cost"
+            rules="required|number"
+            class="form-control"
+            id="pay-cost"
+            placeholder="Vd: 45 000"
+          />
+          <span class="form-message"></span> -->
+        </div>
+
+        <button class="form-submit">Đặt mua</button>
+      </form>
+      <script src="./Lab7_5.js"></script>
+    </div>
+  </body>
+</html>
