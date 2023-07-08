@@ -42,12 +42,7 @@ if (store.state.isLogin) {
   headerLogin.innerHTML = `<a href=".${urlName}/register.html">Đăng nhập</a>`;
 }
 store.subscribe(() => {
-  let urlName = "";
-  if (path.includes("/src/")) {
-    urlName = "";
-  } else {
-    urlName = "/src/page";
-  }
+  let urlName = path == "/ASM" ? "/src/page" : "";
   headerLogin.innerHTML = `<a href=".${urlName}/register.html">Đăng nhập</a>`;
 });
 // =================================================================
