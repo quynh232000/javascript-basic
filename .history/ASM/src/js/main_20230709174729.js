@@ -101,7 +101,7 @@ const renderSlider = () => {
     //
     let last_active_dot = document.querySelector(".dots .active-dot");
     last_active_dot && last_active_dot.classList.remove("active-dot");
-    dots && dots[active].classList.add("active-dot");
+    dots[active].classList.add("active-dot");
 
     clearInterval(refreshInterval);
     refreshInterval = setInterval(() => {
