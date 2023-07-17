@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab3 PS36816</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        box-sizing: inherit;
+      }
+      html,
+      body {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      .body,
+      .wrapper {
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+      }
+      .left {
+        width: 35%;
+        display: flex;
+        justify-content: center;
+        margin-left: 30px;
+      }
+
+      .play-btn {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        justify-content: center;
+      }
+      .play {
+        width: 120px;
+        height: 120px;
+        border: 1px solid rgb(224, 138, 138);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        margin: 0 60px;
+        box-shadow: inset 0 0 70px rgb(9, 226, 118);
+        font-weight: bold;
+        color: blue;
+        transition: all 0.3s ease;
+      }
+      .play:hover {
+        cursor: pointer;
+        box-shadow: inset 0 0 70px rgb(9, 13, 226);
+        color: red;
+      }
+      .choice {
+        padding: 20px;
+        border: 1px solid orange;
+        width: 220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgb(224, 231, 128);
+      }
+      .choice:hover {
+        cursor: pointer;
+        background-color: rgb(221, 235, 98);
+      }
+      .active {
+        background-color: rgb(221, 235, 98);
+      }
+      .green {
+        color: rgb(37, 180, 37);
+        font-size: 80px;
+      }
+      .right {
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-left: 1px solid gray;
+        justify-content: center;
+      }
+      .result {
+        font-size: 120px;
+        color: blue;
+      }
+      .title {
+        margin-top: 60px;
+        font-size: 50px;
+        font-family: monospace;
+        color: rgb(255, 166, 0);
+      }
+      .hidden {
+        display: none;
+      }
+      /* loading */
+      .dots-5 {
+        width: 25px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        animation: d5 0.6s infinite linear alternate;
+      }
+      @keyframes d5 {
+        0% {
+          box-shadow: 40px 0 #0a1fd8, -40px 0 rgba(33, 141, 212, 0.133);
+          background: #0a1fd8;
+        }
+        33% {
+          box-shadow: 40px 0 #0a1fd8, -40px 0 rgba(33, 141, 212, 0.133);
+          background: rgba(33, 141, 212, 0.133);
+        }
+        66% {
+          box-shadow: 40px 0 rgba(33, 141, 212, 0.133), -40px 0 #0a1fd8;
+          background: rgba(33, 141, 212, 0.133);
+        }
+        100% {
+          box-shadow: 40px 0 rgba(33, 141, 212, 0.133), -40px 0 #0a1fd8;
+          background: #0a1fd8;
+        }
+      }
+      /* header */
+      .header {
+        display: flex;
+        text-align: center;
+        font-size: 36px;
+        margin: 20px 0;
+        border: 2px solid rgb(226, 125, 9);
+        padding: 10px 0;
+        color: green;
+      }
+      .h-left {
+        width: 35%;
+        text-align: left;
+        padding-left: 65px;
+      }
+      .h-right {
+        width: 65%;
+      }
+      .icon {
+        transition: all 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title1"
+      style="
+        font-size: 30px;
+        color: orangered;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Game kéo búa bao
+    </div>
+    <div class="header">
+      <div class="h-left h">Bạn chọn</div>
+      <div class="h-right h">Máy chọn</div>
+    </div>
+    <div class="body">
+      <div class="wrapper">
+        <div class="left">
+          <div class="list" id="list"></div>
+          <div class="play-btn">
+            <div class="play">Chơi</div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="result">
+            <div class="question">?</div>
+            <div class="icon hidden"></div>
+            <div class="dots-5 loading hidden"></div>
+          </div>
+          <div class="title hidden"></div>
+        </div>
+      </div>
+    </div>
+    <audio src="../audio/congra.mp3" id="audio"></audio>
+    <script>
+      const arr = [
+        { id: 0, icon: '<i class="  fa-solid fa-hand-back-fist"></i>' },
+        { id: 1, icon: '<i class="  fa-solid fa-hand-scissors"></i>' },
+        { id: 2, icon: '<i class="  fa-solid fa-hand"></i>' },
+      ];
+
+      var listChoiceEl = document.getElementById("list");
+      const choiceEl = document.getElementsByClassName("choice");
+      const playEl = document.querySelector(".play");
+      const loadingEl = document.querySelector(".loading");
+      const titleEl = document.querySelector(".title");
+      const questionEl = document.querySelector(".question");
+      const iconEl = document.querySelector(".icon");
+      const audio = document.getElementById("audio");
+
+      let indexActive;
+
+      // show choice
+      const html = arr.map((item, index) => {
+        return `<div class="choice green" data-index=${index}>
+             ${item.icon}
+            </div>`;
+      });
+      listChoiceEl.innerHTML = html.join("");
+      //  choice
+      listChoiceEl.onclick = (e) => {
+        console.dir(e);
+        const node = e.target.closest(".choice");
+        if (node) {
+          choiceEl[indexActive]?.classList?.remove("active");
+          indexActive = node.dataset.index;
+          choiceEl[indexActive]?.classList?.add("active");
+        }
+      };
+      // play
+      playEl.onclick = () => {
+        questionEl.classList.remove("hidden");
+        iconEl.classList.add("hidden");
+        titleEl.textContent = "....";
+
+        if (indexActive) {
+          const robot = Math.floor(Math.random() * 3);
+          questionEl.classList.add("hidden");
+          loadingEl.classList.remove("hidden");
+          setTimeout(() => {
+            let textValue = "";
+            loadingEl.classList.add("hidden");
+            iconEl.classList.remove("hidden");
+            iconEl.innerHTML = arr[robot].icon;
+            titleEl.classList.remove("hidden");
+            if (robot == indexActive) {
+              textValue = "Hòa";
+            } else if (indexActive == 0) {
+              textValue = robot == 1 ? "Chúc mừng bạn đã thắng" : "Bạn đã thua";
+            } else if (indexActive == 1) {
+              textValue = robot == 2 ? "Chúc mừng bạn đã thắng" : "Bạn đã thua";
+            } else {
+              textValue = robot == 0 ? "Chúc mừng bạn đã thắng" : "Bạn đã thua";
+            }
+            if (textValue.includes("thắng")) {
+              audio.src = "../audio/congra.mp3";
+              audio.play();
+            } else if (textValue.includes("thua")) {
+              audio.src = "../audio/fail.mp3";
+              audio.play();
+            } else {
+              audio.src = "../audio/equal.mp3";
+              audio.play();
+            }
+
+            titleEl.textContent = textValue;
+          }, [2000]);
+        } else {
+          titleEl.classList.remove("hidden");
+          titleEl.textContent = "Vui lòng chọn!!!";
+        }
+      };
+    </script>
+  </body>
+</html>

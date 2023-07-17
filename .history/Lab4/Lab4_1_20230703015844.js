@@ -17,7 +17,7 @@ let arr = [
   },
   {
     id: 3,
-    name: "Technology",
+    name: "Technolory",
     model: "GUCCI",
     cost: "120.000",
     detail:
@@ -85,7 +85,6 @@ createEl.onclick = () => {
 };
 // see detail
 listEl.onclick = (e) => {
-  console.log(e);
   let node = e.target.closest(".detail");
   if (node) {
     let index = node.dataset.index;

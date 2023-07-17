@@ -85,7 +85,6 @@ createEl.onclick = () => {
 };
 // see detail
 listEl.onclick = (e) => {
-  console.log(e);
   let node = e.target.closest(".detail");
   if (node) {
     let index = node.dataset.index;

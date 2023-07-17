@@ -28,31 +28,10 @@ removeEl.onclick = () => {
   viewEl.innerHTML = "0";
   viewResultEl.innerHTML = "0";
 };
-// solve 1+2*3+2*4*5+5+8
+// solve
 resultEl.onclick = () => {
   var currentCal = "+";
-  let newArr = [];
-  let check = false;
-  viewValue.forEach((item, index) => {
-    if (item === "*" || item == "/") {
-      if (item === "*") {
-        newArr[newArr.length - 1] =
-          newArr[newArr.length - 1] * viewValue[index + 1];
-      } else {
-        newArr[newArr.length - 1] =
-          newArr[newArr.length - 1] / viewValue[index + 1];
-      }
-      check = true;
-    } else {
-      if (check == false) {
-        newArr.push(item);
-      }
-      check = false;
-    }
-  });
-  console.log(newArr);
-
-  newArr.map((item) => {
+  viewValue.map((item) => {
     switch (item) {
       case "+":
         currentCal = "+";

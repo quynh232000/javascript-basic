@@ -32,22 +32,21 @@ removeEl.onclick = () => {
 resultEl.onclick = () => {
   var currentCal = "+";
   let newArr = [];
-  let check = false;
   viewValue.forEach((item, index) => {
-    if (item === "*" || item == "/") {
+    if (item === "/" || item === "*") {
       if (item === "*") {
-        newArr[newArr.length - 1] =
-          newArr[newArr.length - 1] * viewValue[index + 1];
+        newArr.push(+viewValue[index - 1] * +viewValue[index + 1]);
       } else {
-        newArr[newArr.length - 1] =
-          newArr[newArr.length - 1] / viewValue[index + 1];
+        newArr.push(+viewValue[index - 1] / +viewValue[index + 1]);
       }
-      check = true;
-    } else {
-      if (check == false) {
+    }
+    {
+      if (
+        (viewValue[index - 1] != "*" && viewValue[index + 1] != "*") ||
+        (viewValue[index - 1] != "/" && viewValue[index + 1] != "/")
+      ) {
         newArr.push(item);
       }
-      check = false;
     }
   });
   console.log(newArr);

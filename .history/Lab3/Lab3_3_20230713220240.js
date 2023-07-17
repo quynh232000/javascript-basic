@@ -40,7 +40,7 @@ resultEl.onclick = () => {
           newArr[newArr.length - 1] * viewValue[index + 1];
       } else {
         newArr[newArr.length - 1] =
-          newArr[newArr.length - 1] / viewValue[index + 1];
+          newArr[newArr.length - 1] * viewValue[index + 1];
       }
       check = true;
     } else {

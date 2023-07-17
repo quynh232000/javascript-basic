@@ -34,14 +34,9 @@ resultEl.onclick = () => {
   let newArr = [];
   let check = false;
   viewValue.forEach((item, index) => {
-    if (item === "*" || item == "/") {
-      if (item === "*") {
-        newArr[newArr.length - 1] =
-          newArr[newArr.length - 1] * viewValue[index + 1];
-      } else {
-        newArr[newArr.length - 1] =
-          newArr[newArr.length - 1] / viewValue[index + 1];
-      }
+    if (item === "*") {
+      newArr[newArr.length - 1] =
+        newArr[newArr.length - 1] * viewValue[index + 1];
       check = true;
     } else {
       if (check == false) {
