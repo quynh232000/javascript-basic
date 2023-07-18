@@ -102,11 +102,12 @@ const renderSlider = () => {
   );
   let lengthItems = items.length - 1;
   let active = 0;
-  if (nextGEl)
-    nextGEl.onclick = function () {
-      active = active + 1 <= lengthItems ? active + 1 : 0;
-      reloadSlider();
-    };
+  if (nextGEl) console.log(nextGEl);
+  nextGEl.onclick = function () {
+    console.log("okok");
+    active = active + 1 <= lengthItems ? active + 1 : 0;
+    reloadSlider();
+  };
   if (prevGEl)
     prevGEl.onclick = function () {
       console.log("prev");

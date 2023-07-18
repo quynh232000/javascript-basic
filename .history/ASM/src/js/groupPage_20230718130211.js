@@ -104,8 +104,9 @@ const renderSlider = () => {
   let active = 0;
   if (nextGEl)
     nextGEl.onclick = function () {
-      active = active + 1 <= lengthItems ? active + 1 : 0;
-      reloadSlider();
+      console.log("okok");
+      // active = active + 1 <= lengthItems ? active + 1 : 0;
+      // reloadSlider();
     };
   if (prevGEl)
     prevGEl.onclick = function () {
@@ -114,9 +115,9 @@ const renderSlider = () => {
       active = active - 1 >= 0 ? active - 1 : lengthItems;
       reloadSlider();
     };
-  let refreshInterval = setInterval(() => {
-    nextGEl.click();
-  }, 6000);
+  // let refreshInterval = setInterval(() => {
+  //   nextGEl.click();
+  // }, 6000);
   function reloadSlider() {
     bannerEl.style.left = -items[active].offsetLeft + "px";
     //

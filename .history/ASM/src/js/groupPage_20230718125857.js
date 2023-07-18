@@ -102,20 +102,21 @@ const renderSlider = () => {
   );
   let lengthItems = items.length - 1;
   let active = 0;
-  if (nextGEl)
-    nextGEl.onclick = function () {
+  if (nextEl)
+    nextEl.onclick = function () {
+      console.log("okok");
       active = active + 1 <= lengthItems ? active + 1 : 0;
       reloadSlider();
     };
-  if (prevGEl)
-    prevGEl.onclick = function () {
+  if (prevEl)
+    prevEl.onclick = function () {
       console.log("prev");
 
       active = active - 1 >= 0 ? active - 1 : lengthItems;
       reloadSlider();
     };
   let refreshInterval = setInterval(() => {
-    nextGEl.click();
+    nextEl.click();
   }, 6000);
   function reloadSlider() {
     bannerEl.style.left = -items[active].offsetLeft + "px";
@@ -126,7 +127,7 @@ const renderSlider = () => {
 
     clearInterval(refreshInterval);
     refreshInterval = setInterval(() => {
-      nextGEl.click();
+      nextEl.click();
     }, 6000);
   }
   if (dots)

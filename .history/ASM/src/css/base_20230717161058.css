@@ -30,19 +30,19 @@ html {
 }
 
 .hidden{
-    display: none;
+    display: block;
 }
 .toast{
     top: 10px;right: 0px;
     position: fixed;
-    /* border: 1px solid green; */
+    border: 1px solid green;
     font-size: 28px;
     padding: 16px 30px;
     border-radius: 6px;
-    background-color: greenyellow;
+    background-color: aquamarine;
     color: orangered;
     box-shadow: 1px 1px 2px greenyellow;
-    animation: slideInLeft ease .3s, fadeOut linear 2s 3s forwards;
+    /* animation: slideInLeft ease .3s, fadeOut linear 2s 3s forwards; */
     z-index: 1;
   }
   @keyframes slideInLeft {

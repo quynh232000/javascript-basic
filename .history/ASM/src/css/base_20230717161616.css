@@ -30,7 +30,7 @@ html {
 }
 
 .hidden{
-    display: none;
+    display: block;
 }
 .toast{
     top: 10px;right: 0px;
@@ -42,7 +42,7 @@ html {
     background-color: greenyellow;
     color: orangered;
     box-shadow: 1px 1px 2px greenyellow;
-    animation: slideInLeft ease .3s, fadeOut linear 2s 3s forwards;
+    /* animation: slideInLeft ease .3s, fadeOut linear 2s 3s forwards; */
     z-index: 1;
   }
   @keyframes slideInLeft {

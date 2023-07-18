@@ -175,9 +175,8 @@ if (listProduct) {
 }
 // buy
 const btnCartBuyEl = document.getElementById("btn-buy-cart");
-btnCartBuyEl.onclick = (e) => {
+btnCartBuyEl.onclick = () => {
   if (listProduct.length === 0) {
-    e.preventDefault();
   } else {
     store.dispatch(actions.actionUpdateCart([]));
     alert("Mua hàng thành công!");

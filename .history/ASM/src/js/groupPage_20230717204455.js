@@ -84,8 +84,8 @@ const arrSlider = [
 ];
 const renderSlider = () => {
   const bannerEl = document.querySelector(".g-list-img");
-  const nextGEl = document.querySelector(".icon-right-g");
-  const prevGEl = document.querySelector(".icon-left-g");
+  const nextEl = document.querySelector(".icon-right");
+  const prevEl = document.querySelector(".icon-left");
   const htmlSlider = arrSlider.map((item, index) => {
     return `
              <img
@@ -102,20 +102,18 @@ const renderSlider = () => {
   );
   let lengthItems = items.length - 1;
   let active = 0;
-  if (nextGEl)
-    nextGEl.onclick = function () {
+  if (nextEl)
+    nextEl.onclick = function () {
       active = active + 1 <= lengthItems ? active + 1 : 0;
       reloadSlider();
     };
-  if (prevGEl)
-    prevGEl.onclick = function () {
-      console.log("prev");
-
+  if (prevEl)
+    prevEl.onclick = function () {
       active = active - 1 >= 0 ? active - 1 : lengthItems;
       reloadSlider();
     };
   let refreshInterval = setInterval(() => {
-    nextGEl.click();
+    nextEl.click();
   }, 6000);
   function reloadSlider() {
     bannerEl.style.left = -items[active].offsetLeft + "px";
@@ -126,7 +124,7 @@ const renderSlider = () => {
 
     clearInterval(refreshInterval);
     refreshInterval = setInterval(() => {
-      nextGEl.click();
+      nextEl.click();
     }, 6000);
   }
   if (dots)

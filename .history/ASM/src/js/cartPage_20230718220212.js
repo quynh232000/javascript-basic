@@ -174,12 +174,7 @@ if (listProduct) {
   //   handle event
 }
 // buy
-const btnCartBuyEl = document.getElementById("btn-buy-cart");
-btnCartBuyEl.onclick = (e) => {
-  if (listProduct.length === 0) {
-    e.preventDefault();
-  } else {
-    store.dispatch(actions.actionUpdateCart([]));
-    alert("Mua hàng thành công!");
-  }
-};
+// const btnCartBuyEl = document.getElementById("btn-buy-cart");
+// btnCartBuyEl.onclick=()=>{
+
+// }

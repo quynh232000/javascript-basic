@@ -74,8 +74,8 @@ if (addProductEl)
 const toastEl = document.querySelector(".toast");
 addCartEl.onclick = () => {
   if (idProduct && count) {
-    countEl.innerHTML = count + store.state.totalCount;
-    store.dispatch(actions.actionAddCart({ id: idProduct, count }));
+    // countEl.innerHTML = count + store.state.totalCount;
+    // store.dispatch(actions.actionAddCart({ id: idProduct, count }));
     console.log(toastEl);
     toastEl.classList.remove("hidden");
     toastEl.textContent = "Đã thêm vào giỏ hàng";

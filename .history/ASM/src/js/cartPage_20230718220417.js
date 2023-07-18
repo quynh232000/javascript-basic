@@ -175,11 +175,6 @@ if (listProduct) {
 }
 // buy
 const btnCartBuyEl = document.getElementById("btn-buy-cart");
-btnCartBuyEl.onclick = (e) => {
-  if (listProduct.length === 0) {
-    e.preventDefault();
-  } else {
-    store.dispatch(actions.actionUpdateCart([]));
-    alert("Mua hàng thành công!");
-  }
+btnCartBuyEl.onclick = () => {
+  store.dispatch(actions.actionUpdateCart([]));
 };

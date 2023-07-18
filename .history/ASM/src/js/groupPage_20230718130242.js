@@ -104,8 +104,9 @@ const renderSlider = () => {
   let active = 0;
   if (nextGEl)
     nextGEl.onclick = function () {
-      active = active + 1 <= lengthItems ? active + 1 : 0;
-      reloadSlider();
+      console.log("okok");
+      // active = active + 1 <= lengthItems ? active + 1 : 0;
+      // reloadSlider();
     };
   if (prevGEl)
     prevGEl.onclick = function () {

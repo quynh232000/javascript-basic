@@ -76,7 +76,6 @@ addCartEl.onclick = () => {
   if (idProduct && count) {
     countEl.innerHTML = count + store.state.totalCount;
     store.dispatch(actions.actionAddCart({ id: idProduct, count }));
-    console.log(toastEl);
     toastEl.classList.remove("hidden");
     toastEl.textContent = "Đã thêm vào giỏ hàng";
     setTimeout(() => {
@@ -85,3 +84,12 @@ addCartEl.onclick = () => {
   }
 };
 // add to cart and buy now
+
+// };
+// toastEl.classList.remove("hidden");
+//     toastEl.textContent = "Đã thêm vào giỏ hàng";
+//     cartCountEl.textContent = String(listCart.length);
+//     setTimeout(() => {
+//       toastEl.classList.add("hidden");
+//     }, 4000);
+//   }

@@ -84,6 +84,7 @@ const renderSlider = () => {
   let lengthItems = items.length - 1;
   let active = 0;
   if (nextEl) {
+    console.log(nextEl);
     nextEl.onclick = function () {
       active = active + 1 <= lengthItems ? active + 1 : 0;
       reloadSlider();
@@ -96,14 +97,14 @@ const renderSlider = () => {
       reloadSlider();
     };
   let refreshInterval = setInterval(() => {
-    if (nextEl) nextEl?.click();
+    if (nextEl) nextEl.click();
   }, 6000);
   function reloadSlider() {
     if (bannerEl) bannerEl.style.left = -items[active].offsetLeft + "px";
     //
     let last_active_dot = document.querySelector(".dots .active-dot");
-    if (last_active_dot) last_active_dot.classList.remove("active-dot");
-    if (dots) dots[active].classList.add("active-dot");
+    last_active_dot && last_active_dot.classList.remove("active-dot");
+    dots && dots[active].classList.add("active-dot");
 
     clearInterval(refreshInterval);
     refreshInterval = setInterval(() => {

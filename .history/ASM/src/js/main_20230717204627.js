@@ -205,7 +205,7 @@ const renderCountCart = () => {
   if (countEl) countEl.innerHTML = store.state.totalCount;
 };
 const app = () => {
-  renderSlider();
+  // renderSlider();
   renderCa();
   renderPro();
   renderCountCart();
