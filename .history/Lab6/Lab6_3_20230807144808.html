@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./Lab6_3.css" />
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title1"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Tạo slideshow
+    </div>
+    <div class="body">
+      <div class="wrapper">
+        <div class="view-body">
+          <img src="../img/phone1.jpg" class="img" alt="" />
+        </div>
+        <div class="event">
+          <div class="btn 1">First</div>
+          <div class="btn 2">Prev</div>
+          <div class="btn 3">Next</div>
+          <div class="btn 4">Last</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const body = document.querySelector(".view-body");
+      const viewEl = document.querySelector(".img");
+      const btnEl = document.querySelectorAll(".btn");
+      let index = 1;
+      viewEl.src = `../img/phone${index}.jpg`;
+      btnEl.forEach((element) => {
+        viewEl.style.removeProperty("animation");
+        element.addEventListener("click", (node) => {
+          viewEl.style.removeProperty("animation");
+          // viewEl.style.animation = "";
+          if (node.target.classList.contains("1")) {
+            index = 1;
+            viewEl.style.animation = "fadeRight .5s ease";
+          } else if (node.target.classList.contains("2")) {
+            if (index === 1) {
+              index = 7;
+            } else {
+              index--;
+            }
+            viewEl.style.animation = "fadeRight .5s ease";
+          } else if (node.target.classList.contains("3")) {
+            if (index === 7) {
+              index = 1;
+            } else {
+              index++;
+            }
+            viewEl.style.animation = "fadeLeft .5s ease";
+            viewEl.style.animation = "";
+          } else {
+            index = 7;
+            viewEl.style.animation = "fadeLeft .5s ease";
+          }
+          viewEl.src = `../img/phone${index}.jpg`;
+        });
+      });
+    </script>
+  </body>
+</html>

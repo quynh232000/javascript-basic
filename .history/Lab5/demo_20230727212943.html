@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="left" style="border: 1px solid red; display: inline-block">
+      okquynh
+    </div>
+    <br />
+    <div class="right"></div>
+    <script>
+      let a = document.querySelector(".left");
+      let b = document.querySelector(".left");
+      a.onclick = () => {
+        a.appendChild(a.cloneNode(true));
+      };
+    </script>
+  </body>
+</html>

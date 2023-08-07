@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="left">
+      <div class="item" style="border: 1px solid red; display: inline-block">
+        product1
+        <div>
+          <p class="price">10</p>
+          <span><button class="btn">add</button></span>
+        </div>
+      </div>
+      <div class="item" style="border: 1px solid red; display: inline-block">
+        product2
+        <div>
+          <p class="price">10</p>
+
+          <span><button class="btn">add</button></span>
+        </div>
+      </div>
+      <div class="item" style="border: 1px solid red; display: inline-block">
+        product3
+        <div>
+          <p class="price">10</p>
+
+          <span><button class="btn">add</button></span>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div>hhhhhhhhhhhhh</div>
+    <div class="test price" price="12000"></div>
+    <div class="name price" price="18000"></div>
+    <div class="right"></div>
+    <div class="show">$</div>
+    <script>
+      let a = document.querySelector(".left");
+      let b = document.querySelector(".right");
+      let s = document.querySelector(".show");
+      const btnList = document.querySelectorAll(".left .btn");
+
+      let total = 0;
+      btnList.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.closest(".item");
+          if (item) {
+            const itemCopy = item.cloneNode(true);
+            const btnDelete = itemCopy.querySelector(".btn");
+            btnDelete.textContent = "Delete";
+            total += +itemCopy.querySelector(".price").textContent;
+            s.textContent = total + "";
+            b.appendChild(itemCopy);
+            btnDelete.addEventListener("click", () => {
+              total -= +itemCopy.querySelector(".price").textContent;
+              s.textContent = total + "";
+              b.removeChild(itemCopy);
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

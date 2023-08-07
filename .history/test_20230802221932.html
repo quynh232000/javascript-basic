@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./test.css" />
+  </head>
+  <body></body>
+  <script>
+    async function respone() {
+      const response = await fetch(
+        "https://store.mr-quynh.com/get-all-products?page=1"
+      );
+      return await response.json();
+    }
+    respone().then((data) => {
+      console.log(data);
+    });
+  </script>
+</html>

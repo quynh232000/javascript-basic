@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab3 PS36816</title>
+    <link rel="stylesheet" href="./Lab5_1.css" />
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Đặt mua Iphone
+    </div>
+    <div class="body">
+      <div class="body-contaner">
+        <div class="body-wrapper">
+          <div class="b-group">
+            <div class="b-group-body">
+              <div class="b-g-item">
+                <!-- <input class="item-input" type="checkbox" /> -->
+                <p>Sản phẩm</p>
+              </div>
+              <div class="b-g-item">
+                <p>Đơn giá</p>
+              </div>
+              <div class="b-g-item">
+                <p>Số lượng</p>
+              </div>
+              <div class="b-g-item">
+                <p>Số tiền</p>
+              </div>
+              <div class="b-g-item item-last">
+                <p>Thao tác</p>
+              </div>
+            </div>
+          </div>
+          <div class="b-group">
+            <!-- item -->
+            <div class="b-group-body">
+              <div class="b-g-item">
+                <img src="../img/phone.jpg" alt="" class="item-img" />
+                <p>
+                  <a href="./detail.html" class="item-link"
+                    >iPhone 14 Pro Max 128GB
+                  </a>
+                </p>
+              </div>
+              <div class="b-g-item">
+                <span class="price">26.890.000</span>
+              </div>
+
+              <div class="b-g-item">
+                <div class="item-count cal cal-delete">-</div>
+                <div class="item-count count-numbeer">1</div>
+                <div class="item-count cal cal-add">+</div>
+              </div>
+              <div class="b-g-item">
+                <div class="item-total">26.890.000</div>
+              </div>
+              <div class="b-g-item item-last">
+                <p class="item-delete">Xóa</p>
+              </div>
+            </div>
+          </div>
+          <div class="b-group">
+            <div class="b-g-end">
+              <div class="b-g-end-left">
+                <p class="b-g-choose-all">Giảm 10%</p>
+              </div>
+              <div class="b-g-end-right">
+                <p>Tổng thanh toán (<span class="count">1</span> Sản phẩm):</p>
+                <div class="total-price pay">26.890.000</div>
+                <a
+                  href="/"
+                  class="price-btn"
+                  onclick="alert('Mua hàng thành công!');"
+                  >Mua Hàng</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./Lab5_1.js"></script>
+  </body>
+</html>

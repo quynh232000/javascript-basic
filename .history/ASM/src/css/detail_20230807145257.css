@@ -1,0 +1,336 @@
+.body{
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-color);
+}
+.body-wrapper{
+    width: var(--width);
+    background-color: var(--white-color);
+
+    margin-bottom: 20px;
+}
+.detail{
+    width: 100%;
+
+}
+.d-nav{
+    display: flex;
+    padding: 20px 0;
+}
+.d-nav-item{
+    display: flex;
+    font-size: 1.4rem;
+    align-items: center;
+}
+.d-nav-item p{
+    color: blue;
+    cursor: pointer;
+}
+.d-nav-item p:hover{
+    opacity: 0.8;
+}
+.d-nav-item i{
+    font-size: 1.1rem;
+    margin: 0 6px;
+}
+.d-nav-name{
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+/* top */
+/* lèt */
+.d-top{
+    display: flex;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    padding: 10px;
+    flex-direction: column;
+}
+.d-top-body{
+    display: flex;
+}
+.d-top-left{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+   
+}
+.d-top-left-img{
+    width: 100%;
+    transition: all .3s ease;
+    max-height: 472px;
+}
+.d-top-left-img:hover{
+    transform: scale(1.1);
+}
+.d-left-img-list{
+    display: flex;
+}
+.d-left-img-list img{
+    width: 20%;
+    padding: 6px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 4px;
+    margin: 10px 4px 10px 0;
+}
+.d-left-img-list img:hover{
+    border: 1px solid rgba(248, 85, 10, 0.8);
+    cursor: pointer;
+}
+.d-top-left-share{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+.d-top-share-left{
+    display: flex;
+    align-items: center;
+}
+.d-top-share-left p{
+    font-size: 1.4rem;
+    margin-right: 6px;
+}
+.d-top-share-left i{
+    font-size: 2rem;
+    color: blue;
+    margin-left: 10px;
+    
+    
+}
+.d-top-share-right{
+    display: flex;
+    font-size: 1.4rem;
+    width: 50%;
+    border-left: 1px solid rgba(0,0,0,0.12);
+    justify-content: center;
+}
+.d-top-share-right i{
+    margin-right: 10px;
+    color: red;
+    
+}
+/* right */
+.d-top-right{
+    width: 60%;
+    padding: 10px 10px 10px 40px;
+}
+.d-top-right-title{
+    font-size: 2rem;
+    margin: 10px 0;
+}
+.d-top-right-rate{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+.d-rate-left{
+    display: flex;
+}
+.d-rate-left-item{
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-left: 10px;
+    padding: 0 20px 0 0;
+    border-right:1px solid rgba(0,0,0,0.2) ;
+}
+.d-rate-left-item p{
+    padding: 0;
+    margin-right: 10px;
+    text-decoration: underline;
+}
+.d-rate-riglt{
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+.d-top-right-price{
+    font-size: 2.6rem;
+    color: var(--primary);
+    padding: 10px 20px;
+    background-color: rgb(240, 233, 233);
+    border-radius: 4px;
+}
+.d-top-right-price sub{
+    font-size: 1.4rem;
+}
+.d-top-right-price-text{
+    font-size: 1.4rem;
+    margin: 10px 0 4px;
+}
+.d-top-right-price-sale{
+    font-size: 1.3rem;
+    color: gray;
+}
+.d-top-right-bao-hiem{
+    margin: 30px 0;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+}
+.d-top-right-bao-hiem p {
+    margin-right: 30px;
+}
+.d-top-right-bao-hiem p:nth-child(1){
+    color: gray;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+}
+.d-top-right-bao-hiem p:nth-child(3){
+    color: blue;
+    cursor: pointer;
+}
+.d-top-right-bao-hiem p img{
+    width: 20px;
+    margin-right: 6px;
+}
+.d-top-right-bao-hiem p span{
+    border: 1px solid rgba(0,0,0,0.12);
+    padding: 8px 10px;
+    border-radius: 4px;
+    margin-right: 6px;
+}
+.d-top-right-count{
+    border: 1px solid rgba(0,0,0,0.12);
+    padding: 8px 16px;
+    cursor: pointer;
+}
+.d-top-btn-body{
+    display: flex;
+    margin-top: 120px;
+}
+.d-top-btn{
+    display: flex;
+    font-size: 1.8rem;
+    color: white;
+    background-color: var(--primary);
+    margin-right: 15px;
+    padding: 18px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+
+}
+.d-top-btn-add{
+    border: 1px solid var(--primary);
+    background-color: #ffeee8;
+    color: var(--primary);
+}
+.d-top-btn-add i{
+    margin-right: 10px;
+}
+.d-top-btn:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+.d-top-protect{
+    border-top: 1px solid rgba(0,0,0,0.12);
+    margin: 30px 0 0;
+    padding: 30px 0 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.4rem;
+    align-items: center;
+}
+.d-top-protect p{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.d-top-protect p img{
+    width: 20px;
+    margin-right: 6px;
+}
+.d-top-protect span{
+    color: gray;
+}
+@media (max-width:400px){
+    .d-nav{
+        margin: 6px;
+        padding: 0;
+    }
+    .d-nav-item{
+        font-size: 12px;
+    }
+    .d-nav-name{
+        font-size: 12px;
+    }
+    .d-top-body{
+        flex-direction: column;
+    }
+    .d-top-left{
+        width: 100%;
+    }
+    .d-left-img-list{
+        justify-content: center;
+    }
+    .d-top-right{
+        width: 100%;
+        padding: 0;
+    }
+    .d-top-right-title{
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 18px;
+    }
+    .d-top-right-rate{
+        font-size: 12px !important;
+    }
+    .d-top-right-bao-hiem{
+        margin: 18px 0;
+    }
+    .bao-hiem-size{
+        display: none;
+    }
+    .d-top-right-bao-hiem p {
+        margin-right: 0;
+    }
+    .d-top-btn-body{
+        margin-top: 10px;
+        justify-content: center;
+    }
+    .d-top-btn{
+        font-size: 16px;
+        padding: 10px 16px;
+    }
+    .d-top-protect{
+        padding: 6px 0 0 0;
+        margin-top: 12px;
+    }
+    .d-nav-name{
+        display: none;
+    }
+    .d-nav{
+        margin-top: 10px;
+    }
+    .lg-share{
+        display: none;
+    }
+    .d-top-left-share{
+        justify-content: space-between;
+        padding: 0;
+    }
+    .d-top-share-right{
+        align-items: center;
+        
+    }
+    .d-top-right-title {
+        text-align: center;
+        padding: 10px 0;
+    }
+    .lg-report{
+        display: none;
+    }
+    .d-rate-left{
+        font-size: 12px;
+        width: 100%;
+        justify-content: center;
+    }
+    .d-rate-left-item {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+}

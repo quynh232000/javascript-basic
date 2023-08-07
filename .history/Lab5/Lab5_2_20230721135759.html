@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab3 PS36816</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./Lab5_2.css" />
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Xây dựng giỏ hàng
+    </div>
+    <div class="toast hidden"></div>
+    <div class="header">
+      <div class="add-product">Thêm</div>
+      <div class="cart-body">
+        <div class="cart"><i class="fa-solid fa-cart-plus"></i></div>
+        <div class="cart-count">0</div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="wrapper" id="list-product"></div>
+    </div>
+    <!-- modal -->
+    <div id="modal" class="hidden">
+      <div class="wrapper1">
+        <div class="container1">
+          <div class="header1">
+            <div class="count-product">Có 0 sản phẩm trong giỏ hàng</div>
+            <div class="icon-close">X</div>
+          </div>
+          <div class="body1">
+            <!-- list -->
+            <div class="list-product"></div>
+            <div class="sale-code">
+              <div class="sale-left">
+                <div class="label-sale">Mã giảm giá</div>
+                <div class="sale-code-input">
+                  <input type="text" placeholder="Nhập mã giảm giá" />
+                  <button class="sale-btn">Áp dụng</button>
+                </div>
+              </div>
+              <div class="sale-right">
+                <div class="price-total">
+                  <p>Tổng tiền:</p>
+                  <span class="total"> 1200000 </span>
+                </div>
+                <div class="price-total">
+                  <p>Giảm:</p>
+                  <span> 567.000 đ </span>
+                </div>
+                <div class="pay-total">
+                  <p>Cần thanh toán:</p>
+                  <span class="total-pay"> 0 </span>
+                </div>
+              </div>
+            </div>
+            <div class="info-user">
+              <div class="info-user-title">Thông tin khách hàng</div>
+              <div class="info-user-form">
+                <div class="info-user-top">
+                  <input
+                    class="info-user-input"
+                    type="text"
+                    placeholder="Nhập họ và tên"
+                  />
+                  <input
+                    class="info-user-input"
+                    type="text"
+                    placeholder="Nhập số điện thoại"
+                  />
+                </div>
+                <div class="info-user-top">
+                  <input class="info-user-input" type="email" />
+                </div>
+
+                <input
+                  class="info-user-input"
+                  type="text"
+                  placeholder="Nhập địa chỉ"
+                />
+              </div>
+            </div>
+            <div class="footer">
+              <div class="footer-btn">
+                <button class="btn-finish">HOÀN TẤT ĐẶT HÀNG</button>
+              </div>
+
+              <div class="footer-end">
+                Bằng cách đặt hàng, bạn đồng ý với
+                <span>Điều khoản sử dụng</span> của Bin Shop
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal add -->
+    <div id="modal-add" class="">
+      <div class="wrapper1">
+        <div class="container1">
+          <div class="header1">
+            <div class="count-product">Nhập thông tin sản phẩm</div>
+            <div class="icon-close">X</div>
+          </div>
+          <div class="body1">
+            <!-- list -->
+
+            <div class="info-user">
+              <form class="info-user-form">
+                <div class="info-user-top">
+                  <input
+                    class="info-user-input"
+                    type="text"
+                    placeholder="Nhập họ và tên"
+                  />
+                  <input
+                    class="info-user-input"
+                    type="text"
+                    placeholder="Nhập số điện thoại"
+                  />
+                </div>
+                <div class="info-user-top">
+                  <input class="info-user-input" type="email" />
+                </div>
+
+                <input
+                  class="info-user-input"
+                  type="text"
+                  placeholder="Nhập địa chỉ"
+                />
+              </form>
+            </div>
+            <div class="footer">
+              <div class="footer-btn">
+                <button class="btn-finish">HOÀN TẤT ĐẶT HÀNG</button>
+              </div>
+
+              <div class="footer-end">
+                Bằng cách đặt hàng, bạn đồng ý với
+                <span>Điều khoản sử dụng</span> của Bin Shop
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- toast -->
+
+    <script src="./Lab5_2.js"></script>
+  </body>
+</html>

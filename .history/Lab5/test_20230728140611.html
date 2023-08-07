@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main {
+        display: flex;
+      }
+      .left {
+        width: 50%;
+      }
+      .right {
+        width: 50%;
+      }
+      .title {
+        text-align: center;
+        font-size: 26px;
+        margin: 20px 0 60px;
+        color: blue;
+        font-weight: bold;
+      }
+      .list {
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #605d5d;
+        padding-right: 20px;
+      }
+      .right .list {
+        padding-left: 20px;
+      }
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid rgba(22, 22, 24, 0.3);
+        padding: 0 10px;
+        margin-bottom: 10px;
+      }
+      .img {
+        width: 60px;
+        object-fit: cover;
+      }
+      .name {
+        font-size: 20px;
+      }
+      .btn {
+        background-color: rgb(55, 55, 247);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
+      .btn:hover {
+        background-color: rgb(88, 88, 245);
+        cursor: pointer;
+      }
+      .show {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        font-size: 24px;
+        background-color: rgb(231, 225, 225);
+        justify-content: space-between;
+      }
+      .total {
+        font-size: 28px;
+        font-weight: bold;
+        margin-left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="left">
+        <div class="title">Danh mục sản phẩm</div>
+        <div class="list">
+          <!-- item -->
+          <div class="item">
+            <img src="../img/phone3.jpg" alt="" class="img" />
+            <div class="name">Laptop</div>
+            <div class="price" price="1200000">1200000</div>
+            <div class="btn">Add</div>
+          </div>
+          <!-- item -->
+          <div class="item">
+            <img src="../img/phone1.jpg" alt="" class="img" />
+            <div class="name">Iphone 11</div>
+            <div class="price" price="24000000">24000000</div>
+            <div class="btn">Add</div>
+          </div>
+          <!-- item -->
+          <div class="item">
+            <img src="../img/phone2.jpg" alt="" class="img" />
+            <div class="name">Camera</div>
+            <div class="price" price="26000000">26000000</div>
+            <div class="btn">Add</div>
+          </div>
+          <!-- item -->
+          <div class="item">
+            <img src="../img/phone4.jpg" alt="" class="img" />
+            <div class="name">Watch</div>
+            <div class="price" price="170000">1200000</div>
+            <div class="btn">Add</div>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="title">Giỏ hàng</div>
+        <div class="list"></div>
+        <div class="show">
+          <p>Tổng tiền:</p>
+          <div class="total">0đ</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const VND = new Intl.NumberFormat("vi-VN", {
+        style: "currency",
+        currency: "VND",
+      });
+      const priceList = document.querySelectorAll(".price");
+      priceList.forEach(function (price) {
+        price.textContent = VND.format(price.getAttribute("price"));
+      });
+
+      let total = 0;
+
+      const listBtn = document.querySelectorAll(".btn");
+      const cart = document.querySelector(".right .list")
+
+      listBtn.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const item = btn.closest(".item");
+          if(item){
+            cart.
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

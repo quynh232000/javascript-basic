@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="left">
+      <div class="item" style="border: 1px solid red; display: inline-block">
+        product1
+        <div>
+          <span><button class="btn">add</button></span>
+        </div>
+      </div>
+      <div class="item" style="border: 1px solid red; display: inline-block">
+        product2
+        <div>
+          <span><button class="btn">add</button></span>
+        </div>
+      </div>
+      <div class="item" style="border: 1px solid red; display: inline-block">
+        product3
+        <div>
+          <span><button class="btn">add</button></span>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div>hhhhhhhhhhhhh</div>
+    <div class="right"></div>
+    <script>
+      let a = document.querySelector(".left");
+      let b = document.querySelector(".right");
+      const btnEl = document.querySelectorAll("btn");
+
+      btnEl.forEach((element) => {
+        element.addEventListener("click", () => {
+          const elParent = this.closest(".item");
+          elParent.onclick = () => {
+            console.log(elParent);
+          };
+        });
+      });
+    </script>
+  </body>
+</html>

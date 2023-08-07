@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main {
+        display: flex;
+      }
+      .left {
+        width: 50%;
+      }
+      .right {
+        width: 50%;
+        border-left: 1px solid #000;
+        margin-left: 10px;
+        padding-left: 10px;
+      }
+      .title {
+        text-align: center;
+        font-size: 26px;
+        margin: 20px 0 60px;
+        color: blue;
+        font-weight: bold;
+      }
+      .list {
+        display: flex;
+        flex-direction: column;
+      }
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid rgba(22, 22, 24, 0.3);
+        padding: 0 10px;
+      }
+      .img {
+        width: 60px;
+        object-fit: cover;
+      }
+      .name {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="left">
+        <div class="title">Danh mục sản phẩm</div>
+        <div class="list">
+          <!-- item -->
+          <div class="item">
+            <img src="../img/phone3.jpg" alt="" class="img" />
+            <div class="name">Iphone 11</div>
+            <div class="price" price="1200000">1200000</div>
+            <div class="btn">Add</div>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="title">Giỏ hàng</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab2 Ps36818 Mảng</title>
+    <style>
+      .list {
+        display: flex;
+        border: 1px solid orange;
+        padding: 30px;
+        flex-wrap: wrap;
+      }
+      .item {
+        font-size: 20px;
+        padding: 10px 20px;
+        border: 2px solid green;
+        margin: 0 10px;
+        border-radius: 6px;
+        position: relative;
+        margin-bottom: 20px;
+      }
+      .item:hover .delete {
+        display: block;
+      }
+      .delete {
+        position: absolute;
+        border: 1px solid gray;
+        border-radius: 50%;
+        font-size: 12px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        top: -16px;
+        background: white;
+        padding: 3px;
+        right: -10px;
+        transition: all 0.3s ease;
+        display: none;
+      }
+      .delete:hover {
+        cursor: pointer;
+        background: rgb(226, 226, 226);
+        color: red;
+      }
+      label {
+        margin-right: 10px;
+      }
+      .content {
+        margin: 20px;
+      }
+      .input {
+        padding: 6px 10px;
+        margin-bottom: 10px;
+        width: 300px;
+        outline: red;
+      }
+      .input-position {
+        width: 20px;
+        outline: none;
+        padding: 6px;
+        border-radius: 6px;
+      }
+      .btn {
+        padding: 10px 20px;
+        border: 1px solid rgba(22, 22, 24, 0.4);
+        width: 60px;
+        text-align: center;
+        border-radius: 6px;
+        font-size: 20px;
+        box-shadow: inset 0 0 10px blue;
+        background-color: aqua;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        cursor: pointer;
+        box-shadow: inset 0 0 10px rgb(35, 35, 210);
+        background-color: rgb(24, 208, 208);
+      }
+      .btn.disable {
+        background-color: gray;
+        box-shadow: none;
+        color: white;
+        cursor: no-drop;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="/"
+      style="
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: blue;
+      "
+      ><img src="../img/home.jpg" style="width: 50px" />Trang chủ</a
+    >
+    <div
+      class="title"
+      style="
+        font-size: 30px;
+        color: orange;
+        margin: 10px 20px;
+        text-decoration: underline;
+      "
+    >
+      Làm việc với mảng
+    </div>
+    <div class="body">
+      <div class="content">
+        <input type="text" class="input" placeholder="Nhập....." />
+        <div class="position">
+          <input name="choice" class="choice" data-pos="start" type="radio" />
+          <label for="">Đầu mảng</label>
+          <input name="choice" class="choice" data-pos="end" type="radio" />
+          <label for="">Cuối mảng</label>
+          <input name="choice" class="choice" type="radio" />
+          <label for="">Vị trí</label>
+          <input class="input-position" type="text" />
+        </div>
+        <div class="feature">
+          <div class="btn disable">Thêm</div>
+        </div>
+      </div>
+      <div class="list"></div>
+    </div>
+    <script>
+      let theList = [
+        "Lauren",
+        "Kevin",
+        true,
+        35,
+        null,
+        undefined,
+        ["one", "two"],
+      ];
+      var listEl = document.querySelector(".list");
+      // remove array
+      const updateDom = () => {
+        var html = theList.map((item, index) => {
+          return `<div class="item">${item}
+            <div class="delete" data-index=${index} >Xóa</div>
+          </div>`;
+        });
+        listEl.innerHTML = html.join("");
+      };
+      updateDom();
+
+      listEl.onclick = (e) => {
+        var nodeItem = e.target.closest(".delete");
+        if (nodeItem) {
+          var index = nodeItem.dataset.index;
+          theList.splice(index, 1);
+          updateDom();
+        }
+      };
+
+      // add array
+
+      var inputEl = document.querySelector(".input");
+      var positionEl = document.querySelector(".position");
+      var inputPosEl = document.querySelector(".input-position");
+      var addEl = document.querySelector(".btn");
+
+      var valueInput, valuePos;
+
+      const checkData = () => {
+        if (valueInput && valuePos) {
+          addEl.classList.remove("disable");
+        } else {
+          addEl.classList.add("disable");
+        }
+      };
+      inputEl.oninput = (e) => {
+        valueInput = e.target.value;
+        checkData();
+      };
+      inputPosEl.oninput = (e) => {
+        valuePos = e.target.value;
+        checkData();
+      };
+      positionEl.onclick = (e) => {
+        var nodePos = e.target.closest(".choice");
+        if (nodePos?.dataset?.pos) {
+          if (nodePos?.dataset?.pos == "start") {
+            valuePos = "0";
+          } else if (nodePos?.dataset?.pos == "end") {
+            valuePos = theList.length;
+          } else {
+            valuePos = inputPosEl.value;
+          }
+          checkData();
+        }
+      };
+      addEl.onclick = () => {
+        theList.splice(Number(valuePos), 0, valueInput);
+        inputEl.value = "";
+        inputPosEl.value = "";
+        valueInput = 0;
+        valuePos = 0;
+        checkData();
+        updateDom();
+      };
+    </script>
+  </body>
+</html>

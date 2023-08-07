@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="left">
+      <div class="item" style="border: 1px solid red; display: inline-block">
+        product1
+        <div>
+          <span><span class="btn">add</span></span>
+        </div>
+      </div>
+      <div class="item" style="border: 1px solid red; display: inline-block">
+        product1
+        <div>
+          <span><span class="btn">add</span></span>
+        </div>
+      </div>
+      <div class="item" style="border: 1px solid red; display: inline-block">
+        product1
+        <div>
+          <span><span class="btn">add</span></span>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div>hhhhhhhhhhhhh</div>
+    <div class="right"></div>
+    <script>
+      let a = document.querySelector(".left");
+      let b = document.querySelector(".right");
+      a.onclick = () => {
+        b.appendChild(a.cloneNode(true));
+      };
+    </script>
+  </body>
+</html>
